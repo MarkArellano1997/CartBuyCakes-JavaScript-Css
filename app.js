@@ -9,6 +9,11 @@ function loadEventListener() {
     listProducts.addEventListener('click', agregarProduct)
 
     cart.addEventListener('click', deleteProduct)
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        productsCart = JSON.parse(localStorage.getItem('carrito'))
+        carritoHtml()
+    })
 }
 
 function agregarProduct(e) {
@@ -87,6 +92,8 @@ function carritoHtml() {
         listCart.appendChild(itemCart)
 
     })
+    
+    localStorage.setItem('carrito', JSON.stringify(productsCart))
 
 
 }
